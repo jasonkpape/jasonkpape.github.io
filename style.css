@@ -1,0 +1,803 @@
+@media DISABLED { /* used to store frequently used colors for easy copy-and-paste */
+Colors used in this stylesheet:
+Black:				#000000; /* black */
+Magenta:			#ee88ee; /* magenta */
+Darker Magenta: 	#cc66cc; /* darker magenta */
+Dark Purple:		#331177; /* dark purple */
+Orange: 			#ff8855; /* orange */
+Light Blue-Violet:	#8888ff; /* light blue-violet */
+Just-Off-White:		#eeeeee; /* just-off-white */
+Light Blue: 		#bbbbff; /* light blue */
+Not-as-Light Blue:	#9999dd; /* not-as-light blue */
+Medium Blue:		#5566ff; /* medium blue */
+Dark Gray:			#222222; /* dark gray */
+Gray:				#666666; /* gray */
+}
+
+
+* {
+	box-sizing: border-box;
+	z-index: 0;
+}
+
+html {
+	height: 100%;
+	position: relative;
+}
+
+/* For backwards compatibility */
+header, nav, main, footer, section, article, figure, figcaption, aside {
+	display: block;
+}
+
+body {
+	color: #ee88ee; /* magenta */
+	background-color: #000000; /* black */
+	min-height: 100%; /* for parallax effect */
+}
+
+
+/* styles for parallax effect */
+.scene, .layer {
+	display: block;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+ }
+
+.scene {
+	position: absolute;
+	overflow: hidden;
+	z-index: -1;
+}
+
+.layer {
+	position: absolute;
+}
+  
+.layer div {
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.background {
+	background: url("images/pattern3.png");
+	filter: hue-rotate(45deg);
+	background-size: 25%;
+	position: absolute;
+	width: 150%;
+	left: -10%;
+	top: -10%;
+	opacity: 0.1;
+	height: 150%;
+	text-rendering: optimizeLegibility;
+}
+/* end main styles for parallax effect */
+
+/* Two wrappers to create a two-color border */
+#wrapper1 {
+	max-width: 1880px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 4px solid #ee88ee; /* magenta */
+	border-radius: 15px;
+	/* position: absolute; /* for parallax effect */
+	left: 0;
+	top: 0;
+}
+
+#wrapper2 {
+	padding: 1px;
+	border: 6px solid #8888ff; /* light blue-violet */
+	border-radius: 10px;
+}
+
+header {
+	padding-left: 10px;
+	font-size: 1.5em;
+	background-color: #331177; /* dark purple */
+	margin: 0;
+	font-weight: bold;
+}
+
+/* For the "skip to content" button; not visible without hover, focus, or active */
+#skip {
+	float: right;
+	color: #331177; /* dark purple */
+	text-decoration: none;
+	font-size: 0.8em;
+	font-family: Arial, sans-serif;
+	padding: 1em;
+    transition: color 110ms ease-in-out;
+}
+
+#skip:focus, #skip:hover {
+	color: #ee88ee; /* magenta */
+}
+
+#skip:active {
+	color: #cc66cc; /* darker magenta */
+}
+
+h1 {
+	padding: 10px;
+	margin: 0;
+	font-family: 'Audiowide', Verdana, sans-serif;
+	text-shadow: 2px 2px 0 #ff8855; /* orange */
+	color: #ee88ee; /* magenta */
+	font-size: 2em;
+}
+
+h2 {
+	padding-left: 10px;
+	color: #ee88ee; /* magenta */
+	margin: 20px 0;
+	font-family: Verdana, sans-serif;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+h3 {
+	padding-left: 10px;
+	color: #ff8855; /* orange */
+	font-family: Verdana, sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+/* for displaying a dropdown nav menu on mobile display; #toggle refers to a div element surrounding a ul element */
+#toggle {
+	display: none;
+	margin: 0;
+	padding: 0;
+	border: 2px solid #bbbbff; /* light blue */
+}
+
+#toggle ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	background-color: #331177; /* dark purple */
+}
+
+nav {
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 200px;
+	border-left: 2px solid #bbbbff; /* light blue */
+	border-right: 2px solid #bbbbff; /* light blue */
+	border-bottom: 2px solid #bbbbff; /* light blue */
+	border-radius: 0 0 0.5em 0.5em;
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	background-color: #5566ff; /* medium blue */
+}
+
+nav li {
+	display: block;
+	border-bottom: 2px solid #bbbbff; /* light blue */
+	font-family: Arial, sans-serif;
+	position: relative;
+	line-height: 1.5;
+}
+
+nav a, nav a:link, nav a:visited {
+	color: #ddddff; /* lighter blue */
+	text-decoration: none;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 0;
+	display: block;
+	padding: 1em;
+	transition: background-color 0.3s linear;
+}
+
+/* For animating active nav link */
+/* For making active nav link 'glow' */
+@keyframes glow {
+	0% {background-color: #1122bb;}
+	50% {background-color: #3344dd;}
+	100% {background-color: #1122bb;}
+}
+
+/* Use to create a div that flashes across active nav link li */
+@keyframes slide {
+	0% {
+		width: 4px;
+		left: 0px;
+		display: none;
+		opacity: 0;
+	}
+	89% {
+		display: none;
+		opacity: 0;
+	}
+	90% {
+		display: block;
+		left: 0px;
+		width: 7px;
+	}
+	95% {opacity: 0.7;}
+	100% {
+		opacity: 0;
+		left: 100%;
+		width: 0px;
+	}
+}
+
+.flash {
+	position: absolute;
+	width: 4px;
+	height: 100%;
+	background-color: white;
+	animation-name: slide;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+.flash2 {
+	position: absolute;
+	opacity: 0;
+	width: 4px;
+	height: 100%;
+	background-color: white;
+	animation-name: slide;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	animation-delay: 0.2s;
+}
+
+/* activepage id is set by php */
+#activepage {
+	color: #ffddff;
+	background-color: #3322bb;
+	animation-name: glow;
+	animation-duration: 2.7s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+nav a:focus, nav a:hover {
+	color: #9999dd; /* not-as-light blue */
+	background-color: #3344dd; /* dark-medium blue */
+	text-decoration: none;
+}
+
+nav a:active {
+	color: #7777bb; /* also-medium blue */
+	background-color: #1122bb; /* darker-medium blue */
+}
+
+/* styling for dropdown nav on mobile view; see appropriate media query for more styles */
+#toggle a:focus, #toggle a:hover {
+	color: #ee7744; /* darker orange */
+	background-color: #110055; /* darker purple */
+	text-decoration: none;
+}
+
+#toggle a:active {
+	color: #dd6633; /* darker-er orange */
+	background-color: #000033; /* dark-dark blue */
+}
+
+/* not used anymore */
+.header-image {
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	height: auto;
+	border-bottom: 2px solid #bbbbff; /* light blue */
+	border-top: 2px solid #bbbbff; /* light blue */
+	border-left-style: none;
+	border-right-style: none;
+}
+
+.hero-container {
+	margin: 0;
+	padding: 0;
+	background-image: url(images/space-hero-1880w-350h.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom left;
+	height: 200px;
+	border-bottom: 2px solid #bbbbff; /* light blue */
+	border-top: 2px solid #bbbbff; /* light blue */
+	border-left-style: none;
+	border-right-style: none;
+	position: relative;
+}
+
+/* Used for mini-glossary */
+aside {
+	float: right;
+	width: 280px;
+	background-color: #222222; /* dark gray */
+	padding-bottom: 3em;
+	border-left: 4px groove #666666; /* gray */
+	border-bottom: 4px ridge #666666; /* gray */
+	border-bottom-left-radius: 3em;
+}
+
+main {
+	font-family: Verdana, sans-serif;
+	color: #8888ff; /* light blue-violet */
+	margin: 0 auto;
+	max-width: 800px;
+	position: relative;
+}
+
+main a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+main a:link, main a:visited {
+	color: #ee88ee; /* magenta */
+}
+
+main a:focus, main a:hover {
+	color: #cc66cc; /* darker magenta */
+}
+
+main a:active {
+	color: #aa44aa; /* even-darker magenta */
+}
+
+img {
+	border: 2px solid #222222; /* dark gray */
+}
+
+dl {
+	font-family: Arial, Verdana, sans-serif;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+dt {
+	margin-bottom: 0.5em;
+}
+
+dt a {
+	padding-bottom: 0.5em;
+	padding-left: 0;
+	font-weight: bold;
+	color: #ff8855; /* orange */
+}
+
+dt a:link, dt a:visited {
+	color: #ff8855; /* orange */
+	text-decoration: none;
+}
+
+dt a:focus, dt a:hover {
+	color: #dd6633; /* medium orange */
+}
+
+dt a:active {
+	color: #bb4411; /* darker orange */
+}
+
+dd {
+	color: #bbbbff; /* light blue */
+	padding-bottom: 1.2em;
+	margin-left: 10px;
+}
+
+main dl {
+	font-size: 1.2em;
+	color: #ff8855; /* orange */
+}
+
+figure {
+	float: right;
+	margin: 0 0.7em 0.7em 0.7em;
+}
+
+figcaption {
+	font-style: italic;
+	text-align: center;
+	font-size: 0.7em;
+}
+
+footer {
+	color: #eeeeee; /* just-off-white */
+	padding-top: 20px;
+	text-align: center;
+	font-style: italic;
+	clear: both;
+	margin-bottom: 0.5em;
+	font-family: Arial, sans-serif;
+}
+
+p {
+	padding-left: 15px;
+	font-size: 1.2em;
+	line-height: 1.4em;
+	text-indent: 0.5em;
+	max-width: 700px;
+}
+
+/* Cancels indentation for first paragraph */
+.first-p {
+	text-indent: 0;
+}
+
+.floatleft {
+	float: left;
+}
+
+/* Use to make Mini-glossary not display on certain pages */
+.unused {
+	display: none;
+}
+
+.mobile-only {
+	display: none;
+}
+
+#mini-glossary {
+	text-align: center;
+	font-family: Verdana, Arial, sans-serif;
+	color: #ee88ee; /* magenta */
+	font-size: 1.6em;
+	text-decoration: overline underline #bbbbff; /* light blue */
+	margin: 25px 0;
+}
+
+.term {
+	text-decoration: none;
+	font-weight: bold;
+	color: #ee88ee; /* magenta */
+}
+
+.vid, .map {
+	border: 4px double #666666;
+	width: 800px;
+	padding: 100px;
+	margin-left: 40px;
+	text-align: center;
+	background-color: #222222;
+	margin: 20px auto;
+}
+
+table {
+	margin: auto;
+	border-radius: 10px;
+	border-spacing: 0;
+	border-collapse: separate;
+}
+
+table tr, td, th, thead, tbody {
+	border: 2px solid #8888ff !important;
+}
+
+thead {
+	background-color: #111111;
+}
+
+thead tr:first-child th:first-child {
+	border-top-left-radius: 10px;
+}
+
+thead tr:first-child th:last-child {
+	border-top-right-radius: 10px;
+}
+
+tbody tr:last-child td:first-child {
+	border-bottom-left-radius: 10px;
+}
+
+tbody tr:last-child td:last-child {
+	border-bottom-right-radius: 10px;
+}
+
+caption {
+	margin: 1em;
+	font-size: 1.7em;
+	color: #ee88ee; /* magenta */
+	font-weight: bold;
+	text-shadow: 2px 2px 2px #8888ff;
+	font-family: Arial, Verdana, sans-serif;
+	padding: 0.5em;
+	margin: 0;
+	caption-side: top;
+	text-align: center;
+}
+
+th, td {
+	border: 2px solid #8888ff; /* light blue-violet */
+	font-size: 1.2em;
+	padding: 1em;
+}
+
+th {
+	color: #ff8855; /* orange */
+}
+
+td {
+	color: #bbbbff; /* light blue */
+}
+
+form {
+	text-align: left;
+	padding-left: 20px;
+	padding-top: 10px;
+	font-size: 1.5em;
+	font-weight: bold;
+	font-family: Verdana, Arial, sans-serif;
+}
+
+fieldset label {
+	width: 100px;
+	display: inline-block;
+}
+
+input, textarea {
+	font-size: 1em;
+	background-color: #222233;
+	color: #d0cfff;
+	padding: 0.3em;
+	margin-right: 0.3em;
+	border: 2px solid #666666;
+	border-radius: 5px;
+}
+
+/* for form placeholders */
+::placeholder {
+	color: #d0c0ee;
+	opacity: 1; /* Firefox sets a lower opacity for placeholder text. */
+}
+
+textarea {
+	margin-top: 20px;
+}
+
+fieldset {
+	margin-bottom: 30px;
+	padding: 20px;
+	width: 690px;
+}
+
+legend {
+	font-weight: normal;
+	color: #ff8855; /* orange */
+}
+
+/* For indicating hotkeys for form controls */
+.hotkey {
+	text-decoration: underline;
+}
+
+/* Used for formatting form output after submitting */
+#output {
+	margin: 1em;
+	padding: 1em;
+	border: 3px solid #8888aa;
+	border-radius: 5px;
+	background-color: #222255;
+	font-size: 1em;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 1.5em;
+	color: #e0dfff;
+	float: right;
+	width: 500px;
+}
+
+/* YouTube videos and the starmap use iframes */
+iframe {
+	display: block;
+	margin: 0 auto;
+	border: 3px solid #555555;
+}
+
+/* Instructions below the starmap */
+.starmap-instructions {
+	text-align: center;
+	font-style: italic;
+}
+
+
+@media only screen and (max-width: 1280px) {
+	
+	h1 {
+		font-size: 1.2em;
+	}
+	
+	/* For dropdown menu in mobile view (Should this be in this media query?) */
+	#toggle {
+		float: none;
+		width: auto;
+		border-radius: 0;
+	}
+	
+	nav {
+		float: none;
+		width: auto;
+		border-radius: 0;
+	}
+	
+	nav ul {
+		background-color: #1122bb; /* darker-medium blue */
+	}
+	
+	nav li {
+		display: inline-block;
+		border-bottom-style: none;
+		border-right: 2px solid #bbbbff; /* light blue */
+		margin: 0;
+		background-color: #5566ff; /* medium blue */
+	}
+	
+	nav a {
+		display: inline-block;
+		font-size: 1em;
+		margin: 0;
+	}
+	
+	main {
+		margin-left: 0;
+		margin-right: 210px;
+	}
+	
+	img {
+		height: 100%;
+	}
+}
+
+@media only all and (max-width: 992px) {
+	
+	#wrapper1, #wrapper2 {
+		border: 0;
+	}
+	
+	header {
+		background-color: #000000;
+	}
+	
+	.hero-container {
+		display: none;
+	}
+	
+	h1 {
+		font-size: 1em;
+	}
+	
+	#skip {
+		height: 0;
+		width: 0;
+		overflow: hidden;
+	}
+	
+	#skip:focus, #skip:hover, #skip:active {
+		color: #331177; /* dark purple */		
+	}
+	
+	/* To toggle dropdown nav menu */
+	#toggle {
+		display: block;
+	}
+	
+	#show-nav {
+		display: inline;
+	}
+	
+	#hide-nav {
+		display: none;
+	}
+	
+	#toggle li {
+		display: block;
+		border-bottom: 2px solid #bbbbff; /* light blue */
+		font-family: Arial, sans-serif;
+		position: relative;
+	}
+
+	#toggle a {
+		color: #ff8855; /* orange */
+		text-decoration: none;
+		font-size: 1.2em;
+		font-weight: bold;
+		margin: 0;
+		display: block;
+		padding: 1em;
+		transition: background-color 0.3s linear;
+	}
+	
+	nav {
+		border: 2px solid #bbbbff; /* light blue */
+		display: none;
+	}
+	
+	nav li {
+		display: block;
+		border-bottom: 2px solid #bbbbff; /* light blue */
+	}
+	
+	nav a {
+		display: block;
+		font-size: 1.2em;
+	}
+	
+	aside {
+		display: none;
+	}
+	
+	main {
+		margin: 0;
+	}
+	
+	img {
+		max-width: 250px;
+		width: auto;
+		height: auto;
+	}
+	
+	.form, .vid, .map, .table {
+		max-width: 50%;
+		width: auto;
+		height: auto;
+		padding: 2em;
+	}
+	
+	.mobile-only {
+		display: block;
+	}
+	
+	/* Alternate version of galaxy table using ul for mobile display */
+	.galaxy-table {
+		display: none;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
