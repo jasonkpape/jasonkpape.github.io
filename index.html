@@ -1,45 +1,123 @@
 <!DOCTYPE html>
-<html>
-  <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
-	<title>index</title>
-	<style>
-		html {
-			height:100%;
-		}
-		body {
-			background-color:#1B1C39;
-			margin:0;
-			height:100%;
-		}
-	</style>
-	<!-- copy these lines to your document head: -->
-
-	<meta name="viewport" content="user-scalable=yes, width=800" />
-
-	<!-- end copy -->
-  </head>
-  <body>
-	<!-- copy these lines to your document: -->
-
-	<div id="index_hype_container" class="HYPE_document" style="margin:auto;position:relative;width:800px;height:600px;overflow:hidden;">
-		<script type="text/javascript" charset="utf-8" src="index.hyperesources/index_hype_generated_script.js?51512"></script>
-	</div>
-
-	<!-- end copy -->
+<html lang="en">
+<head>
+	<title>2D Web Animation :: Bio</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="A homepage for the projects created in an animation class">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css" media="screen">
+	<link rel="stylesheet" href="print.css" media="print">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	
+	<!-- Remainder of head used for parallax effect -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+<script>
+
+function startParallax() {
+	var scene = document.getElementById('scene');
+	var parallaxInstance = new Parallax(scene);
+	
+	document.getElementById('scene').style.height = document.getElementById('wrapper2').scrollHeight + "px";
+	document.getElementById('scene').style.width = document.getElementById('wrapper2').scrollWidth + "px";
+	
+	console.log(document.body.scrollHeight);
+	console.log(document.getElementById('scene').style.minHeight);
+}
+
+</script>
+</head>
+
+<body onload="startParallax();">
 
 
-	<!-- text content for search engines: -->
+<div class="container-fluid">
+<div id="wrapper1"> <!-- Two wrappers for two-color border -->
+<div id="wrapper2">
 
-	<div style="display:none" aria-hidden=true>
 
-		<div>Roller Coaster by JASON PAPE</div>
+<!-- set up parallax layers in ul -->
+<ul id="scene" class="scene unselectable">
+	<li class="layer" data-depth="0.1">
+		<div class="background">
+		</div>
+	</li>
+	<!-- uncomment for second layer
+	<li class="layer" data-depth="0.6">
+		<div class="background">
+		</div>
+	</li>
+	-->
+</ul>
 
-	</div>
+<script>
+// Toggle Navigation on mobile display
+$(document).ready(function() {
+		$('#toggle').click(function() {
+			$('nav').slideToggle(250);
+			$('#show-nav, #hide-nav').toggle();
+		});
+});
 
-	<!-- end text content: -->
+</script>
 
-  </body>
+<header> <!-- Skip to Content link for accessibility purposes -->
+	<a id="skip" href="#content">Skip to Content</a>
+	<h1>2D Web Animation</h1>
+</header>
+
+<div class="jumbotron jumbotron-fluid hero-container"></div> <!-- background image set in style.css -->
+
+<div id="toggle"> <!-- Toggle button for navigation on mobile; not displayed on larger screens -->
+	<ul>
+		<li><a href="#"><span id="show-nav">Show Navigation</span><span id="hide-nav">Hide Navigation</span></a></li>
+	</ul>
+</div>
+
+<nav>
+	<ul> <!-- The line breaks between li's were causing issues with the nav display, so I got rid of them. -->
+		<li><div class="flash2"></div><div class="flash"></div><a id="activepage" href="index.html">Bio</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="resume.html">Résumé</a></li><li><a href="courses.html">Courses</a></li>
+	</ul>
+</nav>
+
+<aside class="unused"> <!-- Set class of aside to "unused" to hide this sidebar or any element within -->
+	<h3 id="mini-glossary" class="unused">Mini-Glossary</h3>
+	<dl class="unused">
+		<dt>First term</dt>
+		<dd>First definition</dd>
+		<dt>Second term</dt>
+		<dd>Second definition</dd>
+	</dl>
+</aside>
+
+<main id="content">
+	<h2>Short Bio</h2>
+	<figure class="floatright">
+		<img class="rounded img-fluid" src="images/capybara-400w-300h.jpg" width="400" height="300" alt="illustration of a capybara">
+	</figure>
+	<p class="first-p">My name is Jason Kendrick Pape, and I'm a student at Saint Paul College working on my AAS in computer programming with an emphasis in game development. After earning my degree here, I'm planning on transferring to Metropolitan State University to pursue a BS in computer science, minoring in game studies. I hope someday to become proficient in game design.</p>
+
+	<p>I created this page to serve as a portfolio for my 2D Web Animation class, in which we use Tumult Hype to create animation and interactive webpages. Click the <a href="portfolio.html">Portfolio</a> link to see what I've added so far.</p>
+</main>
+
+<footer>
+	Copyright &copy; 2020 Jason Kendrick Pape
+</footer>
+
+
+<script>
+
+var scene = document.getElementById('scene');
+var parallaxInstance = new Parallax(scene);
+
+</script>
+
+</div> <!-- end of wrapper1 -->
+</div> <!-- end of wrapper2 -->
+</div> <!-- /.container-fluid -->
+</body>
 </html>
