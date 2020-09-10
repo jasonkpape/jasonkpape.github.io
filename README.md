@@ -1,2 +1,2 @@
 # jasonkpape.github.io
-Homepage for web animation projects
+Homepage for web animation and game design projects
